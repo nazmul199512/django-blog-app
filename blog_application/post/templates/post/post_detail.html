@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+<div class="container">
+
+     <div class="col-sm-12">
+
+
+    <h3> {{ title }} <small> {{ time|timesince }} ago</small></h3>
+     <p>{{ content }}</p>
+
+
+<hr/>
+
+<div class="ui-button-icon-only">
+     <h3>Social Share</h3>
+<h4>
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+Facebook
+</a>
+<a href="https://twitter.com/home?status={{ share_string}}%20{{ request.build_absolute_uri }}">
+Twitter
+</a>
+
+<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ object.title }}&summary={{ share_string }}&source={{ request.build_absolute_uri }}">
+Linkedin
+</a>
+    </h4>
+
+
+</div>
+
+
+</div>
+     </div>
+
+
+{% endblock %}
+

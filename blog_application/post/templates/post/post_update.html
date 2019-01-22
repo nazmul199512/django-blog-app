@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+   <hr/>
+    <div class="row">
+
+      {% for obj in object %}
+
+         <div class="col-sm-12">
+         <div class="thumbnail">
+    <h3> <a href='{% url "detail" id=obj.id %}'>{{ obj.title }}</a><small> {{ obj.timestamp|timesince }} ago</small></h3>
+
+
+         <p>{{ obj.content|linebreaks|truncatechars:120 }}</p>
+         <p><a href="{% url "detail" id=obj.id %}" class="btn btn-primary" role="button">View</a> </p>
+         </div>
+         </div>
+     {% endfor %}
+
+
+
+
+     </div>
+
+
+
+{% endblock %}
